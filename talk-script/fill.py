@@ -23,7 +23,7 @@ if __name__ == "__main__":
         reader = csv.DictReader(f)
         for row in reader:
             print(row)
-            file_name = f"inter-session-speeches-{row['id']}.md"
+            file_name = f"scripts/inter-session-speeches-{row['id']}.md"
             shutil.copyfile("inter-session-speeches-template.md", file_name)
             replace(file_name, row)
 
