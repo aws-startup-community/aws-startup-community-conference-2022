@@ -24,7 +24,10 @@ if __name__ == "__main__":
         for row in reader:
             print(row)
             file_name = f"scripts/inter-session-speeches-{row['id']}.md"
-            shutil.copyfile("inter-session-speeches-template.md", file_name)
+            if row['id'] in ('a-6', 'b-6'):
+                shutil.copyfile("inter-session-speeches-template_last.md", file_name)
+            else:
+                shutil.copyfile("inter-session-speeches-template.md", file_name)
             replace(file_name, row)
 
 
